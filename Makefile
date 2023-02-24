@@ -1,12 +1,13 @@
-MEMBERS     := tesso57 toshi-pono ras0q SSlime-s
-REPO_URL    := git@github.com:ras0q/piscon-2023-spring.git
-REPO_DIR    := ~
-APP         := isulibrary
-SERVICE     := $(APP).go.service
-SERVER_NUM  := 1
-DB_ENV_PATH := ~/env.sh
+MEMBERS      := tesso57 toshi-pono ras0q SSlime-s
+REPO_URL     := git@github.com:ras0q/piscon-2023-spring.git
+REPO_DIR     := ~
+APP          := isulibrary
+SERVICE      := $(APP).go.service
+SERVER_NUM   := 1
+DB_ENV_PATH  := ~/env.sh
 HTTPLOG_PATH := /var/log/nginx/access.log
 SLOWLOG_PATH := /var/log/mysql/mysql-slow.log
+LOGS_DIR     := ~/logs
 
 .PHONY: all
 all: setup-apt setup-env setup-ssh setup-git setup-repo setup-bin
@@ -27,6 +28,7 @@ setup-env:
 	echo 'export DB_ENV_PATH=$(DB_ENV_PATH)' >> ~/.bashrc
 	echo 'export HTTPLOG_PATH=$(HTTPLOG_PATH)' >> ~/.bashrc
 	echo 'export SLOWLOG_PATH=$(SLOWLOG_PATH)' >> ~/.bashrc
+	echo 'export LOGS_DIR=$(LOGS_DIR)' >> ~/.bashrc
 	# for pprotein
 	echo 'export PPROTEIN_HTTPLOG=$(HTTPLOG_PATH)' >> ~/.bashrc
 	echo 'export PPROTEIN_SLOWLOG=$(SLOWLOG_PATH)' >> ~/.bashrc
