@@ -16,6 +16,7 @@ Clone this repository and run `make` command.
 git clone git@github.com:ras0q/isucon-setup.git /tmp/isucon-setup
 cd /tmp/isucon-setup
 make
+exec $SHELL -l
 ```
 
 ## Utilitiy commands
