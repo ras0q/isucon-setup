@@ -19,6 +19,8 @@ make
 exec $SHELL -l
 ```
 
+Edit `.gitignore` and push to your repository.
+
 ## Utilitiy commands
 
 See [./bin/](./bin/)
