@@ -60,4 +60,4 @@ setup-bin:
 	mkdir -p ~/bin
 	cp ./bin/* ~/bin
 	sudo chmod +x ~/bin/*
-	echo 'export PATH=$PATH:~/bin' >> ~/.bashrc
+	echo 'export PATH=$$PATH:~/bin' >> ~/.bashrc
