@@ -57,7 +57,7 @@ setup-repo:
 
 .PHONY: setup-bin
 setup-bin:
-	mkdir -p ~/bin
-	cp ./bin/* ~/bin
-	sudo chmod +x ~/bin/*
-	echo 'export PATH=$$PATH:~/bin' >> ~/.bashrc
+	mkdir -p $(REPO_DIR)/bin
+	cp ./bin/* $(REPO_DIR)/bin
+	sudo chmod +x $(REPO_DIR)/bin/*
+	echo 'export PATH=$$PATH:$(REPO_DIR)/bin' >> ~/.bashrc
