@@ -1,4 +1,4 @@
-MEMBERS      := tesso57 toshi-pono ras0q SSlime-s
+MEMBERS      := tesso57 toshi-pono ras0q
 REPO_URL     := git@github.com:ras0q/piscon-2023-spring.git
 REPO_DIR     := ~
 APP          := isulibrary
