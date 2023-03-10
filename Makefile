@@ -4,13 +4,14 @@ REPO_DIR     := ~
 APP          := isulibrary
 SERVICE      := $(APP).go.service
 SERVER_NUM   := 1
+CONFIG_DIR   := $(REPO_DIR)/isu$(SERVER_NUM)
 DB_ENV_PATH  := ~/env.sh
 HTTPLOG_PATH := /var/log/nginx/access.log
 SLOWLOG_PATH := /var/log/mysql/mysql-slow.log
 LOGS_DIR     := ~/logs
 
 .PHONY: all
-all: setup-apt setup-env setup-ssh setup-git setup-repo setup-bin
+all: setup-apt setup-env setup-ssh setup-git setup-repo setup-bin setup-config
 
 .PHONY: setup-apt
 setup-apt:
@@ -61,3 +62,9 @@ setup-bin:
 	cp ./bin/* $(REPO_DIR)/bin
 	sudo chmod +x $(REPO_DIR)/bin/*
 	echo 'export PATH=$$PATH:$(REPO_DIR)/bin' >> ~/.bashrc
+
+.PHONY: setup-config
+setup-config:
+	mkdir -p $(CONFIG_DIR)
+	sudo cp -rT /etc/nginx $(CONFIG_DIR)/etc/nginx
+	sudo cp -rT /etc/mysql $(CONFIG_DIR)/etc/mysql

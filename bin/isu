@@ -2,12 +2,19 @@
 
 set -aex
 
-# rotate logs
+# rotate (or truncate) logs
 WHEN=$(date +%Y%m%d-%H%M%S)
 [ -f $SLOWLOG_PATH ] && sudo mkdir -p $LOGS_DIR/$WHEN && sudo mv $SLOWLOG_PATH $LOGS_DIR/$WHEN
 [ -f $HTTPLOG_PATH ] && sudo mkdir -p $LOGS_DIR/$WHEN && sudo mv $HTTPLOG_PATH $LOGS_DIR/$WHEN
+# sudo truncate -s 0 -c $SLOWLOG_PATH
+# sudo truncate -s 0 -c $HTTPLOG_PATH
+
+# copy config files
+sudo cp -rT $REPO_DIR/isu$SERVER_NUM/etc/nginx /etc/nginx
+sudo cp -rT $REPO_DIR/isu$SERVER_NUM/etc/mysql /etc/mysql
 
 # restart mysql & nginx
+sudo systemctl daemon-reload # TODO: is this necessary?
 sudo systemctl restart mysql
 sudo systemctl restart nginx
 
