@@ -65,6 +65,6 @@ setup-bin:
 
 .PHONY: setup-config
 setup-config:
-	mkdir -p $(CONFIG_DIR)
+	mkdir -p $(CONFIG_DIR)/etc
 	sudo cp -rT /etc/nginx $(CONFIG_DIR)/etc/nginx
 	sudo cp -rT /etc/mysql $(CONFIG_DIR)/etc/mysql
