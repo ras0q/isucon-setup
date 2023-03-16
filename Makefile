@@ -38,7 +38,7 @@ setup-env:
 .PHONY: setup-ssh
 setup-ssh:
 	mkdir -p ~/.ssh
-	for member in $(MEMBERS); do echo curl https://github.com/$$member.keys >> ~/.ssh/authorized_keys; done
+	for member in $(MEMBERS); do curl https://github.com/$$member.keys >> ~/.ssh/authorized_keys; done
 
 .PHONY: setup-git
 setup-git:
